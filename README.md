@@ -4,18 +4,18 @@ v0.2 (2018-04-22)
 --------------------------------------------------------------------------------------
 Added support for AT28C256 (32K) EEPROM for CONTROL ROM
 Assember (C#, developed using VS2017 and .NET 4.6) 
-  used to assemble "assembly" code to machine code.
-  supports several directives
-  DB, DW, DD, EQU, .data, .code, ORG, PROC, ENDP, END
-  supports all instructions on physical machine (example included in Assember/bin/Debug folder named test1.asm
-  Assember auto-injects setup code to initialze data segment, stack and code segment.
-  Supports far and near calls.
-  Other stuff too I am sure
+  - Used to assemble "assembly" code to machine code.
+  - Supports several directives
+  - DB, DW, DD, EQU, .data, .code, ORG, PROC, ENDP, END
+  - Supports all instructions on physical machine (example included in Assember/bin/Debug folder named test1.asm
+  - Assember auto-injects setup code to initialze data segment, stack and code segment.
+  - Supports far and near calls.
+  - Other stuff too I am sure
 Hardware
-  Added segment registers
-  Added stack pointer
-  Added C register (or was it there before, not sure)
-  Expanded memory space from the 2k AT28C16 chip to a total of 64K, using EEPROM for lowest 2K, SRAM for upper 62k.
+  - Added segment registers
+  - Added stack pointer
+  - Added C register (or was it there before, not sure)
+  - Expanded memory space from the 2k AT28C16 chip to a total of 64K, using EEPROM for lowest 2K, SRAM for upper 62k.
   
 
 
