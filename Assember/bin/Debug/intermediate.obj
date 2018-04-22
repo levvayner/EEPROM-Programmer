@@ -1,0 +1,43 @@
+; DS:0x700 	CS:0x0
+D000700            0      .data                                        
+D000700  DS_ST     1      DS_ST DB **                                  ; Define variable ZERO with value of 0  
+D000701  ONE       1      ONE DB 1                                     ; Define variable ONE with value of 1   
+D000702  WORD      5      WORD DB 5 DUP(?)                             ; Define 5 spaces for a word            
+D000707  SS_I      1      SS_I DB 10H                                  ; Segment for stack                     
+D000708  ST_TOP    1      ST_TOP EQU 254                               ; set ST_TOP as constant euqal to 254   
+D000709  Chars     6      Chars DB 'a','b','c','d','e','f'             ; bunch of chars                        
+D00070F  DS_END    1      DS_END DB *                                  ; point to address of ending of data    
+C000000            2      LDI A, 07h                                   ; initialize A for DS offset for 0x700  
+C000002            1      MOV DS, A                                    ; load data segment with value in A     
+C000003            2      LD A, 020h                                   ; get variable for segment register     
+C000005            1      MOV SS, A                                    ; load segment register with value      
+C000006            2      LD A, 0FFh                                   ; set up stack pointer                  
+C000008            1      MOV SP, A                                    ; set up stack pointer                  
+D000009            0      .code                                        
+C000009            3      CALL Add                                     ; calls the add loop/test function      
+C00000C            3      CALL St_tst                                  ; calls the stack test function         
+C00000F            2      LD A, 255                                    ; load a with 255                       
+C000011            1      OUT A                                        ; Output A to signify we are done.      
+C000012            1      HLT                                          ; stop operation                        
+D000100            0      ORG 100h                                     ; set up procedures in 100h block       
+D000100  Add       0      PROC Add FAR                                 ; start procedure that can be called from afar
+C000100            2      LD A,ONE                                     ; load value of A_IN into register A;   
+C000102            2      LD B, DS_ST                                  ; load value of A_IN into register A;   
+C000104            2      LDI C, 40H                                   ; load register C with 0x40, just to see that we have it, WILL SEE LATER
+L000106  Add1      1      Add1: ADD A                                  ; responsible for adding A to B, and outputing to A.
+C000107            1      OUT A                                        ; outputs result to screen              
+C000108            3      JNZ Add1                                     ; if not zero, jumps back to adding 1.  
+C00010B            1      RET                                          ; return from the function              
+D00010C            0      ENDP                                         ;                                       
+D00010C  St_tst    0      PROC St_tst FAR                              ; start procedure                       
+C00010C            1      MOV A, SP                                    ; get value of stack pointer into A     
+C00010D            2      LD B, 2                                      ; put 2 into B register                 
+C00010F            1      MOV C, SP                                    ; Save stack pointer to C register      
+C000110            1      OUT C                                        ; Output value of C register to numeric display
+C000111            1      ADD                                          ; Substract zero from SP                
+C000112            2      JZ Unwind                                    ; Unwind stack if we are at the top     
+C000114            3      CALL St_tst                                  ; otherwise wind up                     
+L000117  Unwind    0      Unwind:                                      
+C000117            1      RET                                          ; return to previous function call      
+D000118            0      ENDP                                         ;                                       
+D000118  END       1      END                                          ; end of code                           

@@ -1,0 +1,7 @@
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\obj\Release\AssemblyProgrammingServer.csprojResolveAssemblyReference.cache
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\obj\Release\AssemblyProgrammingServer.csproj.CoreCompileInputs.cache
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\bin\Release\AssemblyProgrammingServer.exe.config
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\bin\Release\AssemblyProgrammingServer.exe
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\bin\Release\AssemblyProgrammingServer.pdb
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\obj\Release\AssemblyProgrammingServer.exe
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\AssemblyProgrammingServer\obj\Release\AssemblyProgrammingServer.pdb

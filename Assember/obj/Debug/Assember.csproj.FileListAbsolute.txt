@@ -1,0 +1,7 @@
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\bin\Debug\Assember.exe.config
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\bin\Debug\Assember.exe
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\bin\Debug\Assember.pdb
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\obj\Debug\Assember.csproj.CoreCompileInputs.cache
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\obj\Debug\Assember.exe
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\obj\Debug\Assember.pdb
+C:\Users\lev.vayner\Documents\Arduino\28C16_Programmer\Assember\obj\Debug\Assember.csprojResolveAssemblyReference.cache

@@ -1,0 +1,39 @@
+Address	Label	OpCode	Data	Machine			Assembly
+----------------------------------------------------------------------
+000000:           80       7    LDI       C000000            2      LDI A, 07h                                   ; initialize A for DS offset for 0x700  
+000002:           DC   		    MOV_DS_A  C000002            1      MOV DS, A                                    ; load data segment with value in A     
+000003:           01      20    LDA       C000003            2      LD A, 020h                                   ; get variable for segment register     
+000005:           D8   		    MOV_SS_A  C000005            1      MOV SS, A                                    ; load segment register with value      
+000006:           01      FF    LDA       C000006            2      LD A, 0FFh                                   ; set up stack pointer                  
+000008:           D0   		    MOV_SP_A  C000008            1      MOV SP, A                                    ; set up stack pointer                  
+000009:           3D    1, 0    CALL_F    C000009            3      CALL Add                                     ; calls the add loop/test function      
+00000C:           3D    1, C    CALL_F    C00000C            3      CALL St_tst                                  ; calls the stack test function         
+00000F:           01      FF    LDA       C00000F            2      LD A, 255                                    ; load a with 255                       
+
+000011:           40   		    OUT       C000011            1      OUT A                                        ; Output A to signify we are done.      
+000012:           1B   		    HLT       C000012            1      HLT                                          ; stop operation                        
+000100: Add       01       1    LDA       C000100            2      LD A,ONE                                     ; load value of A_IN into register A;   
+000102:           02       0    LDB       C000102            2      LD B, DS_ST                                  ; load value of A_IN into register A;   
+000104:           82      40    LDI       C000104            2      LDI C, 40H                                   ; load register C with 0x40, just to see that we have it, WILL SEE LATER
+000106: Add1      0D   		    ADD_A     L000106  Add1      1      Add1: ADD A                                  ; responsible for adding A to B, and outputing to A.
+000107:           40   		    OUT       C000107            1      OUT A                                        ; outputs result to screen              
+000108:           19       6    JNZ       C000108            3      JNZ Add1                                     ; if not zero, jumps back to adding 1.  
+00010B:           3F   		    RET_F     C00010B            1      RET                                          ; return from the function              
+00010C: St_tst    97   		    MOV_A_SP  C00010C            1      MOV A, SP                                    ; get value of stack pointer into A     
+00010D:           02       2    LDB       C00010D            2      LD B, 2                                      ; put 2 into B register                 
+
+00010F:           AF   		    MOV_C_SP  C00010F            1      MOV C, SP                                    ; Save stack pointer to C register      
+000110:           42   		    OUT       C000110            1      OUT C                                        ; Output value of C register to numeric display
+000111:           0D   		    ADD_A     C000111            1      ADD                                          ; Substract zero from SP                
+000112:           18      17    JZ        C000112            2      JZ Unwind                                    ; Unwind stack if we are at the top     
+000114:           3D    1, C    CALL_F    C000114            3      CALL St_tst                                  ; otherwise wind up                     
+000117:  Unwind   3F   		    RET_F     C000117            1      RET                                          ; return to previous function call      
+
+000700: DS_ST   7                         D000700  DS_ST     1      DS_ST DB **                                  ; Define variable ZERO with value of 0  
+000701: ONE     1                         D000701  ONE       1      ONE DB 1                                     ; Define variable ONE with value of 1   
+000702: WORD    0, 0, 0, 0, 0             D000702  WORD      5      WORD DB 5 DUP(?)                             ; Define 5 spaces for a word            
+000707: SS_I    16                        D000707  SS_I      1      SS_I DB 10H                                  ; Segment for stack                     
+000708: ST_TOP  254                       D000708  ST_TOP    1      ST_TOP EQU 254                               ; set ST_TOP as constant euqal to 254   
+
+000709: Chars   97, 98, 99, 100, 101, 102 D000709  Chars     6      Chars DB 'a','b','c','d','e','f'             ; bunch of chars                        
+00070F: DS_END  16                        D00070F  DS_END    1      DS_END DB *                                  ; point to address of ending of data    
