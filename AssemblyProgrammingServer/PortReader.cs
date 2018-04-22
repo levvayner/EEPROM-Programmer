@@ -146,28 +146,5 @@ namespace AssemblyProgrammingServer
             return temp;
         }
 
-            //private bool isImageStart(Stream inputStream, int index)
-            //{
-
-            //    if (index < COMMAND.Length)
-            //    {
-            //        try
-            //        {
-            //            if (COMMAND[index] == Read(inputStream))
-            //            {
-            //                return isImageStart(inputStream, ++index);
-            //            }
-            //            else
-            //            {
-            //                return false;
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            Console.WriteLine("Error occured {0}", ex.Message);
-            //        }
-            //    }
-            //    return true;
-            //}
         }
     }
