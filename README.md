@@ -3,6 +3,7 @@
 v0.2 (2018-04-22)
 --------------------------------------------------------------------------------------
 Added support for AT28C256 (32K) EEPROM for CONTROL ROM
+
 **Assember (C#, developed using VS2017 and .NET 4.6)**
   - Used to assemble "assembly" code to machine code.
   - Supports several directives
